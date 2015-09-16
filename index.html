@@ -8,16 +8,27 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
     <link rel="shortcut icon" href="http://www.symbols-n-emoticons.com/favicon.ico">
-    <title><script type='text/javascript'> 
-var msg = "slimeti.me";
-msg = " ..... " + msg;pos = 0;
-function scrollTitle() {
-document.title = msg.substring(pos, msg.length) + msg.substring(0, pos); pos++;
-if (pos > msg.length) pos = 0
-window.setTimeout("scrollTitle()",300);
+    <title>slimeti.me</title>
+    <script>
+    
+    var repeat=1
+    var title=document.title
+    var leng=title.length
+    var start=1
+    function titlemove() {
+      titl=title.substring(start, leng) + title.substring(0, start)
+      document.title=titl
+     start++
+      if (start==leng+1) {
+        start=0
+        if (repeat==0)
+        return
+      }
+  setTimeout("titlemove()",500)
 }
-scrollTitle();
-</script></title>
+if (document.title)
+titlemove()
+</script>
   </head>
   <body>
     <br>
