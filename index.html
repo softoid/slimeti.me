@@ -30,7 +30,6 @@
 <script type="text/javascript">
     // once everything is loaded, we run our Three.js stuff.
     function init() {
-        var stats = initStats();
         // create a scene, that will hold all our elements such as objects, cameras and lights.
         var scene = new THREE.Scene();
         // create a camera, which defines where we're looking at.
@@ -64,22 +63,11 @@
         });
         render();
         function render() {
-			stats.update();
 			// render using requestAnimationFrame
             requestAnimationFrame(render);
             mesh.rotation.x += 0.01;
             mesh.rotation.y += 0.02;
 			webGLRenderer.render(scene, camera);
-        }
-        function initStats() {
-            var stats = new Stats();
-            stats.setMode(0); // 0: fps, 1: ms
-            // Align top-left
-            stats.domElement.style.position = 'absolute';
-            stats.domElement.style.left = '0px';
-            stats.domElement.style.top = '0px';
-            document.getElementById("Stats-output").appendChild(stats.domElement);
-            return stats;
         }
     }
     window.onload = init;
