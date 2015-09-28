@@ -78,10 +78,40 @@
 	    mesh4.position.z = 120;
 	    mesh4.position.y = 120;
 	    
+	    mesh5 = mesh.clone();
+	    mesh5.scale.set(4, 4, 4);
+	    mesh5.position.x = 140;
+	    mesh5.position.z = 120;
+	    mesh5.position.y = 130;
+	    
+	    mesh6 = mesh.clone();
+	    mesh6.scale.set(4, 4, 4);
+	    mesh6.position.x = 100;
+	    mesh6.position.z = 120;
+	    mesh6.position.y = 130;
+	    
+	    mesh7 = mesh.clone();
+	    mesh7.scale.set(4, 4, 4);
+	    mesh7.position.x = 80;
+	    mesh7.position.z = 120;
+	    mesh7.position.y = 130;
+	    	    
+	    mesh8 = mesh.clone();
+	    mesh8.scale.set(4, 4, 4);
+	    mesh8.position.x = 120;
+	    mesh8.position.z = 120;
+	    mesh8.position.y = 130;
+	    
 	    scene.add(mesh);
 	    scene.add(mesh2);
 	    scene.add(mesh3);
 	    scene.add(mesh4);
+	    scene.add(mesh5);
+	    scene.add(mesh6);
+	    scene.add(mesh7);
+	    scene.add(mesh8);
+
+
 
         });
         render();
@@ -94,6 +124,8 @@
             mesh2.rotation.y += 0.02;
             mesh3.rotation.x += 0.01;
             mesh3.rotation.y += 0.02;
+            mesh4.rotation.x += 0.01;
+            mesh4.rotation.y += 0.02;
             mesh4.rotation.x += 0.01;
             mesh4.rotation.y += 0.02;
 			webGLRenderer.render(scene, camera);
