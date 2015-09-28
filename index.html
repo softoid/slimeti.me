@@ -52,6 +52,8 @@
         // add the output of the renderer to the html element
         document.getElementById("WebGL-output").appendChild(webGLRenderer.domElement);
         var loader = new THREE.ColladaLoader();
+        var loader2 = new THREE.ColladaLoader();
+        var loader3 = new THREE.ColladaLoader();
         var mesh;
         loader.load("wheel.dae", function (result) {
             mesh = result.scene.children[0].children[0].clone();
@@ -61,7 +63,7 @@
 			mesh.position.y = 120;
 			scene.add(mesh);
         });
-        loader.load("wheel.dae", function (result) {
+        loader2.load("wheel.dae", function (result) {
             mesh = result.scene.children[0].children[0].clone();
             mesh.scale.set(4, 4, 4);
             mesh.position.x = 240;
@@ -69,7 +71,7 @@
 			mesh.position.y = 120;
 			scene.add(mesh);
         });
-        loader.load("wheel.dae", function (result) {
+        loader3.load("wheel.dae", function (result) {
             mesh = result.scene.children[0].children[0].clone();
             mesh.scale.set(4, 4, 4);
             mesh.position.x = 120;
