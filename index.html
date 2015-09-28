@@ -61,6 +61,22 @@
 			mesh.position.y = 120;
 			scene.add(mesh);
         });
+        loader.load("wheel.dae", function (result) {
+            mesh = result.scene.children[0].children[0].clone();
+            mesh.scale.set(4, 4, 4);
+            mesh.position.x = 240;
+			mesh.position.z = 120;
+			mesh.position.y = 120;
+			scene.add(mesh);
+        });
+        loader.load("wheel.dae", function (result) {
+            mesh = result.scene.children[0].children[0].clone();
+            mesh.scale.set(4, 4, 4);
+            mesh.position.x = 120;
+			mesh.position.z = 360;
+			mesh.position.y = 120;
+			scene.add(mesh);
+        });
         render();
         function render() {
 			// render using requestAnimationFrame
