@@ -135,8 +135,11 @@
             mesh8.rotation.y += 0.02;
             
             webGLRenderer.render(scene, camera);
-            
-            var mouseDown = false,
+        }
+    }
+    window.onload = init;
+    
+    var mouseDown = false,
         mouseX = 0,
         mouseY = 0;
 
@@ -184,9 +187,6 @@
     mesh.rotation.y += deltaX / 100;
     mesh.rotation.x += deltaY / 100;
 }
-        }
-    }
-    window.onload = init;
 </script>
 </body>
 </html>
