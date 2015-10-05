@@ -134,6 +134,8 @@
             mesh8.rotation.x += 0.01;
             mesh8.rotation.y += 0.02;
             
+            webGLRenderer.render(scene, camera);
+            
             var mouseDown = false,
         mouseX = 0,
         mouseY = 0;
@@ -182,7 +184,6 @@
     mesh.rotation.y += deltaX / 100;
     mesh.rotation.x += deltaY / 100;
 }
-			webGLRenderer.render(scene, camera);
         }
     }
     window.onload = init;
