@@ -1,0 +1,22 @@
+body, html {
+	padding: 0;
+	margin: 0;
+	width: 100vw;
+	height: 100vh;
+}
+
+body {
+	background: url('honk.png') top left repeat;
+}
+
+#honk {
+	display: block;
+	position: fixed;
+}
+
+#audio {
+	display: block;
+	position: fixed;
+	left: 150vw;
+	opacity: 0;
+}
