@@ -52,14 +52,14 @@
 
 				requestAnimationFrame( draw );
 				
-				// experiment with code from the snippets menu here
-				mesh.position.x = Math.tan( Date.now() * 0.001 ) * 50;  
-				mesh.position.y = Math.tan( Date.now() * 0.001 ) * 50; 
-				mesh.rotation.z = Date.now() * 0.0005;
+				//		mesh.position.x = Math.tan( Date.now() * 0.001 ) * 50;  
+				//		mesh.position.y = Math.tan( Date.now() * 0.001 ) * 50; 
 				
 				mesh.rotation.x = Date.now() * 0.0005;	
 				mesh.rotation.y = Date.now() * 0.0004;	
 				mesh.rotation.z = Date.now() * 0.002;
+				
+				
 
 
 				effect.render( scene, camera );
