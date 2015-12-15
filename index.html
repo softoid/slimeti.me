@@ -21,11 +21,12 @@
 			
 			var camera, scene, renderer;
 			var geometry, material, mesh;
-		
+
 			function setup() {
 
 				var W = window.innerWidth, H = window.innerHeight;
-				renderer = new THREE.WebGLRenderer();
+				renderer = new THREE.WebGLRenderer( { preserveDrawingBuffer: true } );
+				//renderer.autoClearColor = false;
 				effect = new THREE.AsciiEffect( renderer );
 				effect.setSize( W, H );
 				document.body.appendChild( effect.domElement );
@@ -34,13 +35,15 @@
 				camera.position.z = 500;
 
 				scene = new THREE.Scene();
-			
-				geometry = new THREE.TorusGeometry(200, 90, 40, 40, 6.28);
+				
+				
+				geometry = new THREE.TorusGeometry(100, 50, 40, 40, 6.28);
 				material = new THREE.MeshNormalMaterial({shading: THREE.FlatShading});
+				
+				
 				mesh = new THREE.Mesh(geometry, material);
 				scene.add(mesh);
-				
-			);
+
 
 
 			}
@@ -49,11 +52,18 @@
 
 				requestAnimationFrame( draw );
 				
-				mesh.rotation.x = Date.now() * 0.001;	
+				// experiment with code from the snippets menu here
+				mesh.position.x = Math.tan( Date.now() * 0.001 ) * 50;  
+				mesh.position.y = Math.tan( Date.now() * 0.001 ) * 50; 
+				mesh.rotation.z = Date.now() * 0.0005;
+				
+				mesh.rotation.x = Date.now() * 0.0005;	
 				mesh.rotation.y = Date.now() * 0.0004;	
 				mesh.rotation.z = Date.now() * 0.002;
 
+
 				effect.render( scene, camera );
+
 			}
 
 			setup();
