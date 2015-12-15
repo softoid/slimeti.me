@@ -21,6 +21,21 @@
 			
 			var camera, scene, renderer;
 			var geometry, material, mesh;
+			
+			var loader = new THREE.ColladaLoader();
+
+			loader.load(
+				// resource URL
+				'wheel.dae',
+				// Function when resource is loaded
+				function ( collada ) {
+					scene.add( collada.scene );
+				},
+				// Function called when download progresses
+				function ( xhr ) {
+					console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+				}
+			);
 
 			function setup() {
 
