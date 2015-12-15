@@ -1,29 +1,68 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 	<head>
-		<title>Yas</title>
-		<script type="text/javascript" src="../libs/three.js"></script>
-		<script type="text/javascript" src="../libs/TrackballControls.js"></script>
-		<script type="text/javascript" src="main.js"></script>
-		<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+		<meta charset="utf-8">
+		<style>
+			body {
+				background-color: #ffffff;
+				margin: 0;
+				overflow: hidden;
+			}
+		</style>
 	</head>
 	<body>
+		
+		<script src="http://brangerbriz.net/labs/threejs_playGnd/js/three.min.js"></script>
+		<script src="http://brangerbriz.net/labs/threejs_playGnd/js/Detector.js"></script>
+		<script src="http://brangerbriz.net/labs/threejs_playGnd/js/AsciiEffect.js"></script>
 		<script>
-			var scene = new THREE.Scene();
-var camera = new THREE.PerspectiveCamera(45, 
-window.innerWidth / window.innerHeight, 0.1, 1000);
-...
-var planeGeometry = new THREE.PlaneGeometry(60,40,1,1);
-var planeMaterial = new THREE.MeshLambertMaterial({color: 0xffffff});
-var plane = new THREE.Mesh(planeGeometry,planeMaterial);
-...
-scene.add(plane);
-var ambientLight = new THREE.AmbientLight(0x0c0c0c);
-scene.add(ambientLight);
-...
-var spotLight = new THREE.SpotLight( 0xffffff );
-...
-scene.add( spotLight );
+
+			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+			
+			var camera, scene, renderer;
+			var geometry, material, mesh;
+
+			function setup() {
+
+				var W = window.innerWidth, H = window.innerHeight;
+				renderer = new THREE.WebGLRenderer();
+				effect = new THREE.AsciiEffect( renderer );
+				effect.setSize( W, H );
+				document.body.appendChild( effect.domElement );
+
+				camera = new THREE.PerspectiveCamera( 50, W/H, 1, 10000 );
+				camera.position.z = 500;
+
+				scene = new THREE.Scene();
+				
+				
+				// paste your code from the geometryGUI here
+				geometry = new THREE.TorusGeometry(100, 40, 40, 40, 6.28);
+				material = new THREE.MeshNormalMaterial({shading: THREE.FlatShading});
+				mesh = new THREE.Mesh(geometry, material);
+				scene.add(mesh);
+
+
+			}
+
+			function draw() {
+
+				requestAnimationFrame( draw );
+				
+				// experiment with code from the snippets menu here
+				mesh.rotation.x = Date.now() * 0.0005;	
+				mesh.rotation.y = Date.now() * 0.0002;	
+				mesh.rotation.z = Date.now() * 0.001;
+
+
+				effect.render( scene, camera );
+
+			}
+
+			setup();
+			draw();
+
 		</script>
+		
 	</body>
 </html>
