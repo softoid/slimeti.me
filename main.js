@@ -1,4 +1,6 @@
-window.onload = function() {
+window.onload = main;
+
+function main() {
 	
 	var container = document.getElementById( 'container' ),
 		containerWidth, containerHeight,
